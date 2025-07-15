@@ -1,0 +1,53 @@
+/* LogoSlider.module.scss */
+
+// 右から左へ流れるアニメーションを定義
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    // ロゴリスト1セット分を左に移動させる
+    transform: translateX(-50%);
+  }
+}
+
+// スライダー全体を囲むコンテナ
+.slider {
+  background-color: white;
+  padding: 1rem 0;
+  // はみ出したロゴを隠す
+  overflow: hidden;
+//   // スライダーの両端を自然にぼかすためのマスク
+//   mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+//   // Safari用のプレフィックス
+//   -webkit-mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+}
+
+// アニメーションさせるロゴのリスト（ulタグ）
+.track {
+  // 横並びにする
+  display: flex;
+  // 折り返さない
+  flex-wrap: nowrap;
+  // アニメーションを適用（25秒かけて、一定速度で、無限に繰り返す）
+  animation: infinite-scroll 25s linear infinite;
+  // トラック全体の幅を、ロゴ1セットの2倍にする
+  width: fit-content;
+}
+
+// 各ロゴ（liタグ）
+.logoItem {
+  // ロゴ同士の間隔
+  margin: 0 1rem;
+  // 画像が縮まないようにする
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ロゴ画像（Imageコンポーネント）
+.logoImage {
+  height: 3rem;
+  width: auto;
+}
