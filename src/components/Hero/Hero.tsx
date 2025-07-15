@@ -18,7 +18,8 @@ export default function Hero() {
               <br />
               御社のTikTokを
               <br />
-              <span className={styles.largeText}>"売上直結型"</span>へ。
+              <span className={styles.largeText}>&quot;売上直結型&quot;</span>
+              へ。
             </h1>
             <p>
               事務所のトレンド把握力 x
@@ -40,12 +41,15 @@ export default function Hero() {
             </div>
           </div>
           <div className={styles.rightColumn}>
-            <Image
-              src="/hero/hero-phone.png"
-              alt="TikTok promotion example on a smartphone"
-              width={400}
-              height={800}
-            />
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/hero/hero-phone.png"
+                alt="TikTok promotion example on a smartphone"
+                layout="responsive"
+                width={400}
+                height={800}
+              />
+            </div>
           </div>
         </div>
       </div>
