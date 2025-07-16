@@ -4,11 +4,11 @@ import styles from "./FlowSection.module.scss";
 const flowData = [
   {
     number: "01",
-    title: "企画提案",
-    subtitle: "トレンド活用型企画の設計",
+    title: "ヒアリング",
+    subtitle: "目標設定 & 課題抽出",
     imageSrc: "/images/flow/step_01.png",
     description:
-      "ヒアリング内容に基づき、TikTok公式パートナーとして最新トレンドを活用した企画を無料でご提案。企画の方向性をすり合わせ、相互認識を高め事前準備を完了させます。",
+      "クライアントのビジネスゴール（売上増、認知拡大など）をKGIとして定め、具体的なKPIを設定します。競合や市場を分析し、TikTokでの最適なターゲティング戦略を策定します。",
   },
   {
     number: "02",
