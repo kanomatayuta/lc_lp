@@ -1,0 +1,60 @@
+.section {
+    padding: 5rem 0;
+    background-color: #f9fafb;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .backgroundText {
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15rem; // vwから固定値に変更
+    font-weight: 900;
+    color: #eaf8ff; // 画像に合わせた薄い水色
+    z-index: 1;
+    user-select: none;
+    white-space: nowrap;
+  
+    @media (max-width: 767px) {
+      font-size: 25vw;
+    }
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .heading {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subheading {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    
+    // 768px以上で横並び開始
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    // 1280px以上で5列表示
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }

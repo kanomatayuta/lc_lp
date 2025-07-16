@@ -1,0 +1,47 @@
+.card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #e5e7eb; // 薄いグレー
+    display: block;
+  }
+  
+  .imageContainer {
+      margin-top: -1rem; // 数字と少し重ねる
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fd2551;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #333;
+    text-align: left;
+  }
