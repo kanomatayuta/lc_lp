@@ -14,7 +14,7 @@ const logoFiles = [
 ];
 
 // public/client_logo/ までのパスを結合します
-const logos = logoFiles.map((file) => `/client_logo/${file}`);
+const logos = logoFiles.map((file) => `/images/client_logo/${file}`);
 
 export default function LogoSlider() {
   return (

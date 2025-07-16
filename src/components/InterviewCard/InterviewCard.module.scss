@@ -1,0 +1,63 @@
+/* InterviewCard.module.scss */
+
+.card {
+  position: relative; // 子要素を絶対配置するための基準点
+  border-radius: 0.75rem;
+  overflow: hidden; // はみ出した要素を隠す
+  color: #fff; // 基本の文字色を白に
+  aspect-ratio: 9 / 16; // カードの縦横比を固定
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; // コンテンツをカードの下部に配置
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; // 一番下のレイヤー
+}
+
+.image {
+  // layout="fill" を使う場合、特別なスタイルは不要
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 黒のグラデーションオーバーレイ */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%; // カードの下部70%を覆う
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 2; // 画像の上、テキストの下
+}
+
+.content {
+  position: relative;
+  z-index: 3; // 一番上のレイヤー
+  padding: 1.5rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); // 文字の視認性向上のためのドロップシャドウ
+}
+
+.company, .role {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.role {
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.testimonial {
+  font-size: 1rem; // 少し大きく
+  font-weight: 500;
+  line-height: 1.7;
+}

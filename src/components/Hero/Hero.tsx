@@ -43,7 +43,7 @@ export default function Hero() {
           <div className={styles.rightColumn}>
             <div className={styles.imageWrapper}>
               <Image
-                src="/hero/hero-phone.png"
+                src="/images/hero/hero-Phone.png"
                 alt="TikTok promotion example on a smartphone"
                 layout="responsive"
                 width={400}

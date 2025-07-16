@@ -1,0 +1,103 @@
+/* InterviewSection.module.scss */
+.section {
+  background-color: #0d1a2b;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.verticalTitle {
+  writing-mode: vertical-rl;
+  font-size: 6rem;
+  font-weight: 900;
+  color: #25fde0;
+  opacity: 0.5;
+  user-select: none;
+  line-height: 1;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  display: none;
+  @media(min-width: 1280px){
+    display: block;
+  }
+}
+
+.mainContent {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  position: relative;
+  @media(min-width: 1280px) { margin-left: 100px; }
+  @media(max-width: 1023px) { padding: 1.5rem; }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+}
+
+.headerText { max-width: 600px; }
+.title { font-size: 2rem; font-weight: bold; }
+.subtitle { font-size: 1rem; font-weight: bold; margin-bottom: 1rem; }
+.description { font-size: 0.9rem; line-height: 1.7; color: #333; }
+
+/* PC用ナビゲーション */
+.navigationWrapperPC {
+  display: none;
+  @media(min-width: 1024px) {
+    display: block;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    z-index: 10;
+  }
+}
+
+/* SP用のレイアウトコンテナ */
+.bottomLayout {
+  // SPでのみflexを適用
+  @media(max-width: 1023px) {
+    display: flex;
+    align-items: flex-end; // 下揃え
+    gap: 1rem; // ナビとスライダーの間隔
+  }
+}
+
+/* SP用ナビゲーション */
+.navigationWrapperSP {
+  display: none; // PCでは非表示
+  @media(max-width: 1023px) {
+    display: block;
+    flex-shrink: 0; // 幅が縮まないように固定
+  }
+}
+
+.swiperWrapper {
+  width: 100%;
+  min-width: 0; // flexアイテムが縮小しすぎるのを防ぐ
+}
+
+.swiperContainer {
+  overflow: hidden;
+}
+
+.swiperSlide {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}

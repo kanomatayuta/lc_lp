@@ -1,0 +1,90 @@
+/* CustomNavigation.module.scss */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  
+  // SP版ではカウンターとボタンを縦に並べる
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+.counter {
+  display: flex;
+  align-items: baseline;
+  font-weight: bold;
+  color: #333;
+  width: 80px;
+  justify-content: center;
+  
+  // ★数字が切り替わってもレイアウトがズレないようにする
+  font-variant-numeric: tabular-nums;
+
+  @media (max-width: 1023px) {
+    width: 60px;
+    order: -1; // ボタンの上に配置
+  }
+}
+
+.current {
+  font-size: 2rem;
+}
+
+.divider, .total {
+  font-size: 0.875rem;
+}
+
+.buttons {
+  display: flex;
+  border-radius: 99px;
+  background-color: #fd2551;
+  box-shadow: 0 4px 10px rgba(253, 37, 81, 0.3);
+  overflow: hidden;
+  
+  // SP版では縦並び
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
+}
+
+.navButton {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+  
+  svg {
+    @media (max-width: 1023px) {
+      transform: rotate(-180deg); 
+    }
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &:first-child {
+    @media (min-width: 1024px) {
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    @media (max-width: 1023px) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  &.next {
+    transform: scaleX(-1);
+    @media (max-width: 1023px) {
+      transform: scaleY(-1);
+      transform: rotate(-180deg); 
+    }
+  }
+}
