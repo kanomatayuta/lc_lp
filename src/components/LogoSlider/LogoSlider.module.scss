@@ -1,131 +1,51 @@
-/* InterviewSection.module.scss */
-.section {
-  background-color: #0d1a2b;
-  padding: 5rem 0;
+/* LogoSlider.module.scss */
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    // ロゴリスト1セット分を左に移動させる
+    transform: translateX(-50%);
+  }
+}
+
+// スライダー全体を囲むコンテナ
+.slider {
+  background-color: white;
+  padding: 1rem 0;
   overflow: hidden;
-  position: relative;
+  // スライダーの両端を自然にぼかすためのマスクを有効化
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
 }
 
-/* PC用 縦書きタイトル */
-.verticalTitlePC {
-  writing-mode: vertical-rl;
-  font-size: 6rem;
-  font-weight: 900;
-  color: #25fde0;
-  opacity: 0.5;
-  transform: rotate(180deg) translateX(50%);
-  user-select: none;
-  line-height: 1;
-  position: absolute;
-  left: 0;
-  top: 5rem;
-  height: 100%;
-  display: none; // デフォルトは非表示
-
-  @media(min-width: 1280px){
-    display: block; // PC大画面でのみ表示
-  }
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.mainContent {
-  background-color: #fff;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  position: relative;
-
-  @media(min-width: 1280px) {
-    margin-left: 100px;
-  }
-  
-  @media(max-width: 1023px) {
-    display: flex; // SP版のレイアウト基盤
-    padding: 1.5rem;
-    gap: 1.5rem;
-  }
-}
-
-/* SP用 縦書きタイトル */
-.verticalTitleSP {
-    writing-mode: vertical-rl;
-    font-size: 3rem;
-    font-weight: 900;
-    color: #25fde0;
-    transform: rotate(180deg);
-    user-select: none;
-    line-height: 1;
-    display: none; // デフォルトは非表示
-
-    @media(max-width: 1023px) {
-        display: block; // SP・タブレットで表示
-    }
-}
-
-.header {
-  margin-bottom: 3rem;
-  max-width: 600px;
-  @media (max-width: 1023px) {
-    margin-bottom: 1.5rem;
-  }
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-}
-.subtitle {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-.description {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: #333;
-}
-
-.navigationWrapperPC {
-  display: none;
-  @media(min-width: 1024px) {
-    display: block;
-    position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
-  }
-}
-
-.bottomContent {
-    @media(max-width: 1023px) {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-    }
-}
-
-.navigationWrapperSP {
-  display: none;
-  @media(max-width: 1023px) {
-    display: block;
-    flex-shrink: 0;
-  }
-}
-
-.swiperWrapper {
-  flex-grow: 1;
-  min-width: 0;
-}
-
-.swiperContainer {
-    overflow: hidden;
-}
-
-.swiperSlide {
-  height: auto;
+// アニメーションさせるロゴのリスト（ulタグ）
+.track {
   display: flex;
+  // ロゴリストの幅を内容に合わせる
+  width: fit-content; 
+  // アニメーションを適用（時間を少し延ばしてゆっくりに）
+  animation: infinite-scroll 40s linear infinite;
+
+  // ★ ユーザーが動きを抑制する設定にしている場合はアニメーションを停止
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+// 各ロゴ（liタグ）
+.logoItem {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  // ロゴ同士の間隔を少し広げる
+  margin: 0 2rem; 
+}
+
+// ロゴ画像（Imageコンポーネント）
+.logoImage {
+  height: 3.5rem; // 高さを少し調整
+  width: auto;
 }

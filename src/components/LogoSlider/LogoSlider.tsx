@@ -1,5 +1,3 @@
-/* LogoSlider.tsx */
-
 import Image from "next/image";
 import styles from "./LogoSlider.module.scss";
 
@@ -25,9 +23,9 @@ export default function LogoSlider() {
           <li key={index} className={styles.logoItem}>
             <Image
               src={logo}
-              alt={`Client Logo ${index}`}
-              width={200} // 画像の基本幅
-              height={80} // 画像の基本高さ
+              alt={`Client Logo ${index + 1}`}
+              width={200}
+              height={80}
               className={styles.logoImage}
             />
           </li>
