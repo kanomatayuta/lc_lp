@@ -18,7 +18,7 @@ export default function Hero() {
               <br />
               御社のTikTokを
               <br />
-              <span className={styles.largeText}>&quot;売上直結型&quot;</span>
+              <span className={styles.largeText}>&quot;成果直結型&quot;</span>
               へ。
             </h1>
             <p>

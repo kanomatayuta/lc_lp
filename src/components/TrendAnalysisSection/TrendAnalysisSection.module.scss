@@ -1,0 +1,53 @@
+/* src/components/TrendAnalysisSection/TrendAnalysisSection.module.scss */
+
+.section {
+    padding: 4rem 0;
+    background-color: #f9fafb; // 背景色を薄いグレーに設定
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .grid {
+    display: grid;
+    align-items: center;
+    gap: 3rem;
+    grid-template-columns: 1fr; // モバイルでは1列
+  
+    // PC表示（768px以上）で2列に
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .textColumn {
+    h2 {
+      font-size: 2.25rem; // 36px
+      font-weight: bold;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+  
+    p {
+      font-size: 1rem; // 16px
+      line-height: 1.7;
+      color: #333;
+    }
+  }
+  
+  .imageColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem; // 角を少し丸める
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }

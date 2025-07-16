@@ -1,0 +1,163 @@
+/* src/components/Works/Works.module.scss */
+
+.section {
+  background-color: #fff;
+  color: #111;
+  padding: 5rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.backgroundText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20vw;
+  font-weight: 900;
+  color: #f2f2f2;
+  z-index: 1;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #fd2551;
+  margin-bottom: 0;
+  line-height: 1;
+  @media (min-width: 768px) {
+    font-size: 8rem;
+  }
+}
+
+.subtitle {
+  color: #fd2551;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin-bottom: 3rem;
+}
+
+.slideGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  text-align: left;
+  padding-bottom: 4rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 280px 1fr; 
+    gap: 4rem;
+  }
+}
+
+.phoneColumn {
+  display: flex;
+  justify-content: center;
+}
+
+.phoneImage {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.detailsColumn {
+  h3 {
+    font-size: 1.75rem; 
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border-left: 5px solid #fd2551;
+    padding-left: 1rem;
+  }
+}
+
+.performance {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e5e7eb;
+}
+
+/* --- ここからが新しいデザインのスタイルです --- */
+
+.performanceTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280; 
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.performanceIcon {
+  color: #9ca3af; // アイコンの色
+}
+
+.performanceValue {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-weight: bold;
+  
+  .value {
+    font-size: 2.5rem;
+    color: #111;
+    line-height: 1.2;
+    margin-right: 0.25rem; // 数値と単位の間隔
+  }
+
+  .unit {
+    font-size: 1.2rem; // 単位の文字サイズを小さく
+    color: #6b7280;
+    font-weight: bold;
+  }
+
+  .arrow {
+    font-size: 1.75rem;
+    color: #fd2551;
+    flex-shrink: 0; // 矢印が縮まないように
+  }
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+/* --- SwiperのUIカスタム --- */
+.swiperContainer {
+  :global(.swiper-pagination-bullet) {
+    background-color: #ccc;
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background-color: #fd2551;
+  }
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    color: #fd2551;
+    transform: scale(0.8);
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+}

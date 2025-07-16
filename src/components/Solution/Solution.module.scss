@@ -1,0 +1,28 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 2px solid #f3f4f6;
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fd2551;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #333;
+  }
+  
+  .imageWrapper {
+    text-align: center;
+  }

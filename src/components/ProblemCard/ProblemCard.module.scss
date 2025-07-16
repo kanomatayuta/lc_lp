@@ -1,0 +1,29 @@
+.card {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.title {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.imageContainer {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #333;
+}
