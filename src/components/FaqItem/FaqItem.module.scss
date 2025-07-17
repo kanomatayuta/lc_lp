@@ -1,0 +1,86 @@
+/* FaqItem.module.scss */
+.faqItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.questionHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem;
+  text-align: left;
+  gap: 1.5rem;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.qIcon {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fff;
+  background-color: #333;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+.questionText {
+  flex-grow: 1;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+/* --- ここからが修正箇所です --- */
+.toggleIcon {
+  flex-shrink: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  // 下向きの三角形を作成
+  border-width: 7px 5px 0 5px; // 上、左右、下の順
+  border-color: #333 transparent transparent transparent;
+  transition: transform 0.3s ease;
+  
+  // 開いた状態（下向き▼が上向き▲になる）
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+/* --- 修正ここまで --- */
+
+
+/* 回答部分のアニメーション */
+.answerWrapper {
+  display: grid;
+  grid-template-rows: 0fr; // 初期状態では高さを0に
+  transition: grid-template-rows 0.4s ease;
+  background-color: #f9fafb;
+
+  &.open {
+    grid-template-rows: 1fr; // 開いた状態で高さを自動調整
+  }
+}
+
+.answerContent {
+  overflow: hidden;
+  padding: 0 1.5rem; // アニメーション中はpaddingが見えないように
+
+  p {
+    padding: 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #333;
+    white-space: pre-wrap; // 改行を反映させる
+    border-top: 1px dashed #e5e7eb;
+  }
+}
