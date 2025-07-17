@@ -1,0 +1,105 @@
+/* TeamSection.module.scss */
+.section {
+  background-color: #0d1a2b;
+  padding: 5rem 0;
+  color: #fff;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #cdd6f4;
+}
+
+.sliderContainer {
+    position: relative;
+    padding: 0 4rem;
+
+    @media (max-width: 1023px) {
+        padding: 0;
+    }
+}
+
+.swiperContainer {
+  padding: 1rem 0;
+
+  @media(max-width: 767px) {
+    overflow: visible;
+  }
+}
+
+.swiperSlide {
+  height: auto;
+  transition: transform 0.4s, opacity 0.4s;
+
+  @media(max-width: 1023px) {
+    &:not(.swiper-slide-active) {
+      transform: scale(0.9);
+      opacity: 0.6;
+    }
+  }
+}
+
+/* --- ここからが修正箇所です --- */
+.navigationButtons {
+    // PCでのみ表示
+    @media (max-width: 1023px) {
+        display: none;
+    }
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; // ★ クリックできるように手前に配置
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    // swiper-button-disabledクラスが付与されたら非表示
+    &.swiper-button-disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &.prev {
+        left: 0;
+    }
+
+    &.next {
+        right: 0;
+        svg {
+            transform: scaleX(-1);
+        }
+    }
+}
