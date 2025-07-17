@@ -6,7 +6,8 @@ import ReasonsSection from "@/components/ReasonsSection/ReasonsSection";
 import FlowSection from "@/components/FlowSection/FlowSection";
 import InterviewSection from "@/components/InterviewSection/InterviewSection";
 import FaqSection from "@/components/FaqSection/FaqSection";
-import TeamSection from "@/components/TeamSection/TeamSection"; // インポート
+import TeamSection from "@/components/TeamSection/TeamSection";
+import ContactSection from "@/components/ContactSection/ContactSection"; // インポート
 
 export default function Home() {
   return (
@@ -19,12 +20,8 @@ export default function Home() {
       <FlowSection />
       <InterviewSection />
       <FaqSection />
-      <TeamSection /> {/* ここに追加 */}
-      {/* 以下のお問い合わせセクションは、次のステップで実装します */}
-      <section>
-        <h2>お問い合わせ</h2>
-        <p>こちらはお問い合わせのセクションです。</p>
-      </section>
+      <TeamSection />
+      <ContactSection />
     </main>
   );
 }
