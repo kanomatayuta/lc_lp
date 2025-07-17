@@ -44,7 +44,7 @@ export default function Hero() {
             {/* ★ Imageを囲むラッパーを追加 */}
             <div className={styles.imageWrapper}>
               <Image
-                src="/hero/hero-phone.png"
+                src="/images/hero/hero-phone.png"
                 alt="TikTok promotion example on a smartphone"
                 fill // layout="responsive" の代わりに fill を使用
                 sizes="(max-width: 768px) 80vw, 400px" // パフォーマンス向上のためsizesプロパティを追加
