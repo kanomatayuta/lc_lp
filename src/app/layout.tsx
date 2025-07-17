@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
+import Script from "next/script"; // Scriptコンポーネントをインポート
 import "./globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -20,8 +20,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      {/* Add the className back to the body tag to apply the font */}
       <body className={inter.className}>
+        {/* --- ここからGoogle Tag Managerのスクリプト --- */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-EWPSTDG3YT"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EWPSTDG3YT');
+          `}
+        </Script>
+        {/* --- ここまでGoogle Tag Managerのスクリプト --- */}
+
+        {/* 既存のMicrosoft Clarityのスクリプト */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
