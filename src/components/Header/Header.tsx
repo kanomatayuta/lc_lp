@@ -4,8 +4,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./Header.module.scss"; // SCSS 모듈 임포트
+import styles from "./Header.module.scss";
 
+// ナビゲーションの項目
 const navItems = [
   { href: "#home", label: "Home" },
   { href: "#cases", label: "事例紹介" },
@@ -19,11 +20,16 @@ const navItems = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // モバイルメニューを閉じる関数
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <Link href="/">
+          <Link href="/" onClick={closeMenu}>
             <Image
               src="/brand_logo/lc_logo.png"
               alt="LC Logo"
@@ -34,6 +40,7 @@ export default function Header() {
           </Link>
         </div>
 
+        {/* PC用ナビゲーション */}
         <nav className={styles.navDesktop}>
           {navItems.map((item) => (
             <Link key={item.label} href={item.href}>
@@ -42,21 +49,27 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* ハンバーガーメニューボタン */}
         <button
           className={styles.hamburgerBtn}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="メニューを開く"
         >
-          {/* アイコンSVGは省略 */}
+          {/* アイコンの線 */}
+          <span className={styles.line}></span>
+          <span className={styles.line}></span>
+          <span className={styles.line}></span>
         </button>
       </div>
 
+      {/* モバイル用ナビゲーション */}
       <div className={`${styles.navMobile} ${isOpen ? styles.open : ""}`}>
         <nav>
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu} // メニュー項目クリックで閉じる
             >
               {item.label}
             </Link>

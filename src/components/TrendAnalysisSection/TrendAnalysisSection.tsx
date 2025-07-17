@@ -6,7 +6,6 @@ export default function TrendAnalysisSection() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* 左側のテキストカラム */}
           <div className={styles.textColumn}>
             <h2>
               最新トレンド×データ分析で、
@@ -21,13 +20,14 @@ export default function TrendAnalysisSection() {
               あなたのTikTokアカウントを、成果を出す集客チャネルに変革します。
             </p>
           </div>
-          {/* 右側の画像カラム */}
           <div className={styles.imageColumn}>
             <Image
               src="/images/trend/trend-analysis-image.jpg"
               alt="TikTokのトレンド分析とデータ活用のイメージ"
               width={500}
               height={350}
+              // Add this style prop to ensure responsiveness without distortion
+              style={{ width: "100%", height: "auto" }}
               className={styles.image}
             />
           </div>

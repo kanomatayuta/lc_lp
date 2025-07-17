@@ -18,7 +18,7 @@ export default function Hero() {
               <br />
               御社のTikTokを
               <br />
-              <span className={styles.largeText}>&quot;成果直結型&quot;</span>
+              <span className={styles.largeText}>&quot;売上直結型&quot;</span>
               へ。
             </h1>
             <p>
@@ -41,13 +41,14 @@ export default function Hero() {
             </div>
           </div>
           <div className={styles.rightColumn}>
+            {/* ★ Imageを囲むラッパーを追加 */}
             <div className={styles.imageWrapper}>
               <Image
-                src="/images/hero/hero-Phone.png"
+                src="/hero/hero-phone.png"
                 alt="TikTok promotion example on a smartphone"
-                layout="responsive"
-                width={400}
-                height={800}
+                fill // layout="responsive" の代わりに fill を使用
+                sizes="(max-width: 768px) 80vw, 400px" // パフォーマンス向上のためsizesプロパティを追加
+                className={styles.heroImage}
               />
             </div>
           </div>

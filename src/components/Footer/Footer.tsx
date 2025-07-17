@@ -9,21 +9,20 @@ export default function Footer() {
         <div className={styles.mainContent}>
           <div className={styles.logoColumn}>
             <Link href="/" className={styles.logoLink}>
-              {" "}
-              {/* ★ aタグにもクラス名を付与 */}
               <Image
-                src="/brand_logo/lc_logo.png"
+                src="/brand_logo/lc_logo.png" // 白いロゴのパス
                 alt="LC Leading Communication Logo"
                 width={200}
                 height={60}
-                style={{ objectFit: "contain", width: "100%", height: "auto" }} // ★インラインスタイルで比率を制御
+                style={{ width: "100%", height: "auto", objectFit: "contain" }}
               />
             </Link>
           </div>
+          {/* ★ ここに情報を追記しました */}
           <div className={styles.infoColumn}>
             <h3>会社概要</h3>
             <p>株式会社 Leading Communication</p>
-            <p>〒 150-0043</p>
+            <p>〒150-0043</p>
             <p>東京都渋谷区道玄坂1-16-10 渋谷DTビル6F</p>
             <p>
               TEL: <a href="tel:03-6427-0997">03-6427-0997</a>

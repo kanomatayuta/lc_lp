@@ -102,6 +102,11 @@ export default function Works() {
                     alt={`${work.clientName}のTikTok実績`}
                     width={280}
                     height={570}
+                    // Add this style prop to fix the aspect ratio warning
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
                     className={styles.phoneImage}
                   />
                 </div>

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "./TeamMemberCard.module.scss";
 
-// PropsからtitleとborderColorを削除
 type Props = {
   imageSrc: string;
   name: string;
@@ -10,13 +9,13 @@ type Props = {
 
 export default function TeamMemberCard({ imageSrc, name, description }: Props) {
   return (
-    // style属性とtitleOverlayを削除
     <div className={styles.card}>
+      {/* The `layout` and `objectFit` props are replaced by `fill` and `sizes` */}
       <Image
         src={imageSrc}
         alt={name}
-        layout="fill"
-        objectFit="cover"
+        fill // Use the fill prop to make the image fill its parent container
+        sizes="(max-width: 1023px) 80vw, 33vw" // Helps Next.js optimize image loading
         className={styles.image}
       />
       <div className={styles.contentOverlay}>

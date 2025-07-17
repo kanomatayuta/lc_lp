@@ -1,90 +1,120 @@
 /* Header.module.scss */
 
 .header {
-    background-color: black;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 50;
+  background-color: black;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+/* --- PC用ナビゲーション --- */
+.navDesktop {
+  display: none; // SPでは非表示
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    display: flex; // PCで表示
   }
-  
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 4rem; // 64px
-  }
-  
-  .navDesktop {
-    display: none; // 모바일에서는 숨김
-    gap: 2rem;
-  
-    @media (min-width: 768px) {
-      display: flex; // PC에서는 표시
-    }
-  
-    a {
-      position: relative;
-      color: white;
-      font-weight: 500;
-      padding-bottom: 4px;
-  
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #FD2551;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease-out;
-      }
-  
-      &:hover::after {
-        transform: scaleX(1);
-      }
-    }
-  }
-  
-  .hamburgerBtn {
-    display: block; // 모바일에서 표시
+
+  a {
+    position: relative;
     color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-  
-    @media (min-width: 768px) {
-      display: none; // PC에서는 숨김
+    font-weight: 500;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #fd2551;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #FD2551;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-out;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
     }
   }
+}
+
+/* --- ハンバーガーボタン --- */
+.hamburgerBtn {
+  display: flex; // SPで表示
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+
+  .line {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: white;
+      border-radius: 10px;
+  }
+
+  @media (min-width: 768px) {
+    display: none; // PCでは非表示
+  }
+}
+
+/* --- モバイル用ナビゲーション --- */
+.navMobile {
+  display: none; // 基本的に非表示
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
   
-  .navMobile {
-    display: none; // 기본적으로 숨김
-    background-color: black;
-  
-    &.open {
-      display: block; // 'open' 클래스가 있을 때 표시
-    }
-  
-    nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-  
-    a {
-      color: white;
-      &:hover {
-        color: #FD2551;
-      }
+  // openクラスが付与された時のスタイル
+  &.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    &:hover {
+      color: #FD2551;
     }
   }
+}
