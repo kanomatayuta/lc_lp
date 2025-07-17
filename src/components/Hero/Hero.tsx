@@ -22,7 +22,7 @@ export default function Hero() {
             </h1>
             <p>
               事務所のトレンド把握力 x 上場企業も納得の分析・提案体制で
-              <br />
+              <br className={styles.spNone} />
               「売上にインパクトのある企画と動画」をご提案します。
             </p>
             <div className={styles.ctaButtons}>
