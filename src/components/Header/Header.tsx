@@ -36,6 +36,8 @@ export default function Header() {
               width={120}
               height={40}
               priority
+              // ★ 画像の比率を維持するためのスタイルを追加
+              style={{ width: "100%", height: "auto" }}
             />
           </Link>
         </div>

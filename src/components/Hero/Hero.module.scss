@@ -4,6 +4,9 @@
   color: white;
   padding-top: 4rem;
   overflow: hidden;
+  @media (max-width: 767px) {
+    padding-top: 5rem;
+  }
 }
 
 .container {
@@ -64,7 +67,9 @@
     color: #d1d5db;
     margin-bottom: 2.5rem;
     font-size: clamp(0.9rem, 1.5vw, 1rem); // 本文も少しだけ可変に
-    
+    @media (max-width: 767px) {
+      margin-bottom: 1rem;
+    }
   }
 }
 /* ★ SPでbrタグを非表示にするスタイルを追加 */

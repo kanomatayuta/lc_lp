@@ -20,6 +20,12 @@
   height: 4rem;
 }
 
+/* ★ ロゴのコンテナスタイルを追加 */
+.logo {
+  width: 120px; // 画像の基本幅を指定
+  flex-shrink: 0; // コンテナが縮まないように
+}
+
 /* --- PC用ナビゲーション --- */
 .navDesktop {
   display: none; // SPでは非表示
