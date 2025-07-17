@@ -1,4 +1,3 @@
-/* Hero.tsx */
 import Image from "next/image";
 import Link from "next/link";
 import LogoSlider from "../LogoSlider/LogoSlider";
@@ -41,13 +40,13 @@ export default function Hero() {
             </div>
           </div>
           <div className={styles.rightColumn}>
-            {/* ★ Imageを囲むラッパーを追加 */}
             <div className={styles.imageWrapper}>
               <Image
-                src="/images/hero/hero-Phone.png"
+                src="/hero/hero-phone.png"
                 alt="TikTok promotion example on a smartphone"
-                fill // layout="responsive" の代わりに fill を使用
-                sizes="(max-width: 768px) 80vw, 400px" // パフォーマンス向上のためsizesプロパティを追加
+                fill
+                sizes="(max-width: 768px) 80vw, 400px"
+                priority // LCP画像の読み込みを優先
                 className={styles.heroImage}
               />
             </div>

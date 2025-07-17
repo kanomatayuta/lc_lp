@@ -1,9 +1,11 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/Hero/Hero";
-import TrendAnalysisSection from "@/components/TrendAnalysisSection/TrendAnalysisSection";
-import Works from "@/components/Works/Works";
 
-// ★ 表示が遅れても良いコンポーネントを全てdynamic importに切り替える
+// パフォーマンス向上のため、スクロールしないと表示されないセクションを動的に読み込む
+const TrendAnalysisSection = dynamic(
+  () => import("@/components/TrendAnalysisSection/TrendAnalysisSection")
+);
+const Works = dynamic(() => import("@/components/Works/Works"));
 const FeaturesSection = dynamic(
   () => import("@/components/FeaturesSection/FeaturesSection")
 );
@@ -27,12 +29,12 @@ const ContactSection = dynamic(
 export default function Home() {
   return (
     <main>
-      {/* ページの初期表示に必須なコンポーネントは通常通り読み込む */}
+      {/* ページの初期表示に必須なヒーローセクションは通常通り読み込む */}
       <Hero />
+
+      {/* 以下、動的に読み込むコンポーネント群 */}
       <TrendAnalysisSection />
       <Works />
-
-      {/* 動的に読み込むコンポーネント */}
       <FeaturesSection />
       <ReasonsSection />
       <FlowSection />
