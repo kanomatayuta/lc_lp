@@ -8,7 +8,7 @@ import Footer from "@/components/Footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LC | 売上直結型のTikTok運用代行",
+  title: "LC | 成果直結型のTikTok運用代行",
   description:
     "上場企業も信頼する実績と分析力で、御社のTikTokアカウントを売上に直結させます。まずは無料資料請求からお問い合わせください。",
 };
