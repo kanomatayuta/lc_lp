@@ -1,0 +1,74 @@
+/* Footer.module.scss */
+.footer {
+  background-color: #111;
+  color: #e5e7eb;
+  padding: 4rem 0 2rem 0;
+  font-size: 0.875rem;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  
+  @media(min-width: 768px) {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.logoColumn {
+  display: flex;
+  align-items: flex-start;
+  
+  @media(max-width: 767px) {
+    justify-content: center;
+  }
+}
+
+/* --- ここからが修正箇所です --- */
+.logoLink {
+    display: inline-block;
+    max-width: 200px; // ロゴの最大幅を指定
+    width: 100%;
+}
+/* --- 修正ここまで --- */
+
+
+.infoColumn {
+  h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  a {
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: color 0.3s;
+    
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #374151;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
