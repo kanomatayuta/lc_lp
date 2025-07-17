@@ -5,19 +5,23 @@ import "./globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// ★ パフォーマンス改善: フォントの読み込み戦略を'swap'に設定
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
-// ★ここからSEO設定
+// SEO設定
 const siteName = "LC - TikTok運用代行";
 const description =
   "上場企業も信頼する実績と分析力で、御社のTikTokアカウントを売上に直結させます。まずは無料資料請求からお問い合わせください。";
-const url = "https://landing.le-commu.co.jp/"; // ★本番環境のドメインに変更してください
+const url = "https://landing.le-commu.co.jp/";
 
 export const metadata: Metadata = {
   // 基本的なメタデータ
   title: {
-    template: `%s | ${siteName}`, // ページごとにタイトルを設定できるようにするテンプレート
-    default: siteName, // デフォルトのタイトル
+    template: `%s | ${siteName}`,
+    default: siteName,
   },
   description: description,
   keywords: [
@@ -31,7 +35,7 @@ export const metadata: Metadata = {
     "Leading Communication",
   ],
 
-  // OGP (Open Graph Protocol) の設定 - SNSでの表示を制御
+  // OGP (Open Graph Protocol) の設定
   openGraph: {
     title: siteName,
     description: description,
@@ -39,9 +43,10 @@ export const metadata: Metadata = {
     siteName: siteName,
     images: [
       {
-        url: `${url}/og-image.png`, // ★OGP画像のパス (public/og-image.png に配置)
+        url: `${url}/og-image.png`,
         width: 1200,
         height: 630,
+        alt: "LC TikTok運用代行サービス",
       },
     ],
     locale: "ja_JP",
@@ -53,16 +58,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteName,
     description: description,
-    images: [`${url}/og-image.png`], // OGP画像と同じものを指定
+    images: [`${url}/twitter-image.png`], // Twitter専用の画像を指定
   },
 
   // その他の重要なメタデータ
-  metadataBase: new URL(url), // 相対パスを解決するための基準URL
+  metadataBase: new URL(url),
   alternates: {
-    canonical: "/", // 正規URLの指定
+    canonical: "/",
   },
   robots: {
-    // クローラーへの指示
     index: true,
     follow: true,
     googleBot: {
@@ -71,7 +75,6 @@ export const metadata: Metadata = {
     },
   },
 };
-// ★ここまでSEO設定
 
 export default function RootLayout({
   children,
@@ -81,12 +84,13 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
+        {/* ★ パフォーマンス改善: スクリプトの読み込み戦略を'lazyOnload'に変更 */}
         {/* Google Tag Manager */}
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=G-EWPSTDG3YT"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -96,7 +100,7 @@ export default function RootLayout({
         </Script>
 
         {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
