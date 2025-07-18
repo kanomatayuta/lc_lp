@@ -182,36 +182,92 @@
 }
 
 
-.floatingCta {
+/* --- フローティングCTAのスタイル --- */
+
+.floatingCtaContainer {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background-color: #25FDE0;
-  color: black;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  font-weight: bold;
-  font-size: 0.9rem;
-  text-align: center;
-  line-height: 1.4;
   z-index: 40;
-  transition: transform 0.3s;
+
+  /* PC・タブレット表示 (768px以上) */
+  @media (min-width: 768px) {
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    // PCでは初期状態は非表示
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+
+    // PCで表示する際のスタイル
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  /* SP表示 (767px以下) */
+  @media (max-width: 767px) {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+  }
+}
+
+.floatingCta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
   border: none;
   cursor: pointer;
-
-  span {
-    font-size: 0.75rem;
-    text-decoration: underline;
-    margin-top: 0.25rem;
-    display: block;
-  }
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  justify-content: flex-start;
 
   &:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
   }
-
+  
+  // SP用のスタイル
   @media (max-width: 767px) {
-    display: none;
+    padding: 0.75rem 0.5rem;
+    border-radius: 0;
+    box-shadow: none;
+    justify-content:center;
+
+    &:hover {
+      transform: none; // SPではホバーエフェクトを無効化
+    }
+
+    .ctaText {
+      font-size: 0.9rem; // SPではテキストを少し小さく
+    }
+
   }
+  
+  // 配色
+  &.primary {
+    background: #25FDE0;
+    color: #000;
+  }
+  &.secondary {
+    background: #FD2551;
+    color: #fff;
+  }
+}
+
+.ctaText {
+    white-space: nowrap;
 }
