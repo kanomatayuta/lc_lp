@@ -5,44 +5,38 @@
     transform: translateX(0);
   }
   to {
-    // ロゴリスト1セット分を左に移動させる
+    // ロゴリストの半分の距離を移動する
     transform: translateX(-50%);
   }
 }
 
-// スライダー全体を囲むコンテナ
 .slider {
   background-color: white;
-  padding: 1rem 0;
+  padding: .4rem 0;
   overflow: hidden;
 }
 
-// アニメーションさせるロゴのリスト（ulタグ）
 .track {
   display: flex;
-  // ロゴリストの幅を内容に合わせる
-  width: fit-content; 
-  // アニメーションを適用（時間を少し延ばしてゆっくりに）
-  animation: infinite-scroll 40s linear infinite;
+  width: fit-content;
+  // ★ アニメーション時間を長くしてスクロール速度を一定に保つ
+  animation: infinite-scroll 100s linear infinite;
 
-  // ★ ユーザーが動きを抑制する設定にしている場合はアニメーションを停止
+  // ユーザーが動きを抑制する設定にしている場合はアニメーションを停止
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
 }
 
-// 各ロゴ（liタグ）
 .logoItem {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  // ロゴ同士の間隔を少し広げる
-  margin: 0 2rem; 
+  margin: 0 1rem; 
 }
 
-// ロゴ画像（Imageコンポーネント）
 .logoImage {
-  height: 3.5rem; // 高さを少し調整
+  height: 3rem;
   width: auto;
 }
