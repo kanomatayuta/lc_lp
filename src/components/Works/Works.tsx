@@ -1,38 +1,52 @@
 "use client";
-
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
-// SwiperのCSSをインポート
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import styles from "./Works.module.scss";
 
-// アイコンコンポーネントを定義
-const PerformanceIcon = () => (
+// PC用の矢印アイコン
+const ArrowIcon = () => (
   <svg
+    width="12"
+    height="22"
+    viewBox="0 0 12 22"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11 21L1 11L11 1"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+// ★ おしゃれな矢印アイコンを新しく定義
+const StylishArrowIcon = () => (
+  <svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={styles.performanceIcon}
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    <path
+      d="M4 12H20M20 12L14 6M20 12L14 18"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
-// 実績データの構造を更新
 const worksData = [
   {
     clientName: "日本ピザハット株式会社 様",
@@ -79,72 +93,94 @@ export default function Works() {
   return (
     <section id="cases" className={styles.section}>
       <div className={styles.backgroundText}>WORKS</div>
+      <h2 className={styles.visuallyHidden}>導入実績</h2>
 
       <div className={styles.container}>
-        <h2 className={styles.title}>WORKS</h2>
-        <p className={styles.subtitle}>FEATURES</p>
-
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          loop={true}
-          className={styles.swiperContainer}
-        >
-          {worksData.map((work, index) => (
-            <SwiperSlide key={index}>
-              <div className={styles.slideGrid}>
-                <div className={styles.phoneColumn}>
-                  <Image
-                    src={work.phoneImage}
-                    alt={`${work.clientName}のTikTok実績`}
-                    width={280}
-                    height={570}
-                    // Add this style prop to fix the aspect ratio warning
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                    }}
-                    className={styles.phoneImage}
-                  />
-                </div>
-                <div className={styles.detailsColumn}>
-                  <h3>{work.clientName}</h3>
-
-                  <div className={styles.performance}>
-                    <div className={styles.performanceTitle}>
-                      <PerformanceIcon />
-                      <span>{work.performance.title}</span>
-                    </div>
-                    <div className={styles.performanceValue}>
-                      <div>
-                        <span className={styles.value}>
-                          {work.performance.from}
-                        </span>
-                        <span className={styles.unit}>
-                          {work.performance.fromUnit}
-                        </span>
-                      </div>
-                      <span className={styles.arrow}>→</span>
-                      <div>
-                        <span className={styles.value}>
-                          {work.performance.to}
-                        </span>
-                        <span className={styles.unit}>
-                          {work.performance.toUnit}
-                        </span>
-                      </div>
-                    </div>
+        <div className={styles.sliderContainer}>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
+              prevEl: `.${styles.prevButton}`,
+              nextEl: `.${styles.nextButton}`,
+            }}
+            pagination={{
+              el: `.${styles.pagination}`,
+              clickable: true,
+            }}
+            loop={true}
+            className={styles.swiperContainer}
+          >
+            {worksData.map((work, index) => (
+              <SwiperSlide key={index}>
+                <div className={styles.slideGrid}>
+                  <div className={styles.phoneColumn}>
+                    <Image
+                      src={work.phoneImage}
+                      alt={`${work.clientName}のTikTok実績`}
+                      width={280}
+                      height={570}
+                      style={{ height: "auto" }}
+                      sizes="(max-width: 767px) 40vw, 280px"
+                      className={styles.phoneImage}
+                    />
                   </div>
-
-                  <p className={styles.description}>{work.description}</p>
+                  <div className={styles.detailsColumn}>
+                    <h3>{work.clientName}</h3>
+                    <div className={styles.performance}>
+                      <div className={styles.performanceTitle}>
+                        {work.performance.title}
+                      </div>
+                      <div className={styles.performanceValue}>
+                        <div>
+                          <span className={styles.value}>
+                            {work.performance.from}
+                          </span>
+                          <span className={styles.unit}>
+                            {work.performance.fromUnit}
+                          </span>
+                        </div>
+                        <span className={styles.arrow}>
+                          <StylishArrowIcon />
+                        </span>
+                        <div>
+                          <span className={styles.value}>
+                            {work.performance.to}
+                          </span>
+                          <span className={styles.unit}>
+                            {work.performance.toUnit}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <p
+                      className={styles.description}
+                      dangerouslySetInnerHTML={{ __html: work.description }}
+                    />
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* ナビゲーションUI */}
+          <div className={styles.navigation}>
+            <button
+              className={`${styles.navButton} ${styles.prevButton}`}
+              aria-label="前のスライドへ"
+            >
+              <ArrowIcon />
+            </button>
+            <div className={styles.pagination}></div>
+            <button
+              className={`${styles.navButton} ${styles.nextButton}`}
+              aria-label="次のスライドへ"
+            >
+              <ArrowIcon />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

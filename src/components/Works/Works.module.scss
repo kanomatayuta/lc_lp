@@ -1,9 +1,9 @@
-/* src/components/Works/Works.module.scss */
+/* Works.module.scss */
 
 .section {
   background-color: #fff;
-  color: #111;
-  padding: 5rem 0;
+  color: #000;
+  padding: 3rem 0;
   overflow: hidden;
   position: relative;
 }
@@ -13,52 +13,50 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20vw;
+  font-size: 25vw;
   font-weight: 900;
-  color: #f2f2f2;
+  color: #f3f4f6; /* ★ 背景が白でも見えるように、薄いグレーに変更 */
   z-index: 1;
   user-select: none;
   white-space: nowrap;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .container {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 1rem;
-  text-align: center;
   position: relative;
   z-index: 2;
 }
 
-.title {
-  font-size: 5rem;
-  font-weight: 900;
-  color: #fd2551;
-  margin-bottom: 0;
-  line-height: 1;
-  @media (min-width: 768px) {
-    font-size: 8rem;
-  }
-}
-
-.subtitle {
-  color: #fd2551;
-  font-weight: bold;
-  letter-spacing: 0.2em;
-  margin-bottom: 3rem;
+.sliderContainer {
+  position: relative;
 }
 
 .slideGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
   align-items: center;
-  text-align: left;
-  padding-bottom: 4rem;
-
+  gap: 1rem;
+  
   @media (min-width: 768px) {
-    grid-template-columns: 280px 1fr; 
-    gap: 4rem;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -69,95 +67,155 @@
 
 .phoneImage {
   width: 100%;
-  max-width: 280px;
   height: auto;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); /* 影を少し薄く調整 */
+  max-width: 280px;
+
+  @media (max-width: 767px) {
+    max-width: 40vw;
+  }
 }
 
 .detailsColumn {
   h3 {
-    font-size: 1.75rem; 
     font-weight: bold;
+    color: #000;
+    font-size: 2rem;
     margin-bottom: 2rem;
-    border-left: 5px solid #fd2551;
-    padding-left: 1rem;
+    @media (max-width: 767px) {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
   }
 }
 
 .performance {
-  background-color: #f9fafb;
-  border-radius: 8px;
+  position: relative; // 疑似要素の基準点
+  border-radius: 16px; // 角を少し丸く
   padding: 1.5rem;
   margin-bottom: 2rem;
-  border: 1px solid #e5e7eb;
+  text-align: left;
+  max-width: 450px;
+  
+  // Glassmorphism（すりガラス）のスタイル
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; // 疑似要素がはみ出さないように
+
+  @media (max-width: 767px) {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-/* --- ここからが新しいデザインのスタイルです --- */
-
-.performanceTitle {
+.performanceTitle { color: #6b7280; font-size: 0.8rem; } /* ★ 少し濃いグレーに変更 */
+.performanceValue {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #6b7280; 
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
-}
-
-.performanceIcon {
-  color: #9ca3af; // アイコンの色
-}
-
-.performanceValue {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
   font-weight: bold;
-  
-  .value {
-    font-size: 2.5rem;
-    color: #111;
-    line-height: 1.2;
-    margin-right: 0.25rem; // 数値と単位の間隔
-  }
-
-  .unit {
-    font-size: 1.2rem; // 単位の文字サイズを小さく
-    color: #6b7280;
-    font-weight: bold;
-  }
-
+  .value { color: #000; font-size: 1.8rem; }
+  .unit { color: #374151; font-size: 0.9rem; } /* ★ 少し濃いグレーに変更 */
   .arrow {
-    font-size: 1.75rem;
     color: #fd2551;
-    flex-shrink: 0; // 矢印が縮まないように
+    line-height: 0;
+  }
+}
+.description { color: #1f2937; text-align: left; } /* ★ 少し濃いグレーに変更 */
+
+
+/* --- ナビゲーションの配色修正 --- */
+.navigation {
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 2.5rem auto 0;
   }
 }
 
-.description {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #374151;
+.navButton {
+  background: none;
+  border: 2px solid #d1d5db; /* ★ グレーのボーダーに変更 */
+  color: #9ca3af; /* ★ グレーのアイコン色に変更 */
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+
+  &:hover {
+    background-color: #fd2551;
+    border-color: #fd2551;
+    color: #fff;
+  }
+
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.7); /* ★ ボタン背景を半透明の白に */
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  @media (min-width: 768px) {
+    position: static;
+    transform: none;
+  }
+
+  &.prevButton {
+    @media (max-width: 767px) {
+      left: 0;
+    }
+  }
+
+  &.nextButton {
+    transform: scaleX(-1);
+    @media (max-width: 767px) {
+      right: 0;
+      transform: translateY(-50%) scaleX(-1);
+    }
+  }
 }
 
-/* --- SwiperのUIカスタム --- */
-.swiperContainer {
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-grow: 1;
+
+  @media (max-width: 767px) {
+    order: 1;
+    margin: 1rem 0;
+  }
+
   :global(.swiper-pagination-bullet) {
-    background-color: #ccc;
     width: 10px;
     height: 10px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
     opacity: 1;
+    transition: all 0.3s;
+    cursor: pointer;
   }
   :global(.swiper-pagination-bullet-active) {
     background-color: #fd2551;
-  }
-  :global(.swiper-button-prev),
-  :global(.swiper-button-next) {
-    color: #fd2551;
-    transform: scale(0.8);
-
-    @media (max-width: 767px) {
-      display: none;
-    }
+    transform: scale(1.2);
   }
 }
