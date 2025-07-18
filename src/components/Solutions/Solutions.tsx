@@ -24,17 +24,21 @@ const solutionsData = [
 
 export default function Solutions() {
   return (
-    <div className={styles.container}>
-      <h2 className={styles.heading}>LCのTikTok運用ならこう変わる</h2>
-      <div className={styles.solutionsList}>
-        {solutionsData.map((solution) => (
-          <Solution
-            key={solution.title}
-            title={solution.title}
-            description={solution.description}
-            imageSrc={solution.imageSrc}
-          />
-        ))}
+    <div className={styles.sectionWrapper}>
+      <div className={styles.container}>
+        <h2 className={styles.heading}>LCのTikTok運用ならこう変わる</h2>
+        <div className={styles.solutionsList}>
+          {solutionsData.map((solution, index) => (
+            <Solution
+              key={index}
+              title={solution.title}
+              description={solution.description}
+              imageSrc={solution.imageSrc}
+              className={index % 2 === 0 ? styles.oddCard : styles.evenCard}
+              index={index} // ★ アニメーション遅延用にindexを渡す
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

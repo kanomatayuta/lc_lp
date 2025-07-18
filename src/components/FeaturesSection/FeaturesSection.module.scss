@@ -1,10 +1,10 @@
+/* FeaturesSection.module.scss */
 .section {
-  padding: 5rem 0;
-  background-color: #f9fafb;
+  padding: 2rem 0 0;
+  background-color: #EFEFEF;
 }
 
 .container {
-  max-width: 1024px;
+  /* ★ max-widthとpaddingを削除し、中の要素が全幅を使えるようにする */
   margin: 0 auto;
-  padding: 0 1rem;
 }

@@ -1,51 +1,56 @@
 /* Problems.module.scss */
 .section {
   text-align: center;
-  margin-bottom: 5rem;
+  background-color: #efefef;
+  padding: 4rem 1rem; // ★ 左右のpaddingをここで設定
+  border-radius: 12px;
   
-  // アニメーションの初期状態
+  // ★ このセクション自体の最大幅と中央揃えを設定
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 
-  // 表示された時のスタイル
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
+
+  // ★ FeaturesSectionの黒背景に合わせるための調整
+  @media (max-width: 1023px) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 .heading {
-  font-size: clamp(1.4rem, 2vw, 2.25rem);
+  font-size: clamp(1.4rem, 4vw, 2.25rem);
   font-weight: bold;
   margin-bottom: 1rem;
-  display: flex; /* ★ 中央揃えと縦位置調整のためflexを使用 */
+  display: flex;
   justify-content: center;
-  align-items: baseline; /* テキストのベースラインを揃える */
-  gap: 0.1ch; /* 文字間のスペース */
+  align-items: baseline;
+  gap: 0.1ch;
+  color: #000;
 }
 
-/* ★ 強調したい「お悩み」部分のスタイル */
 .headingAccent {
-  font-size: clamp(1.8rem, 4vw, 3.5rem); // 周りのテキストより一回り大きく
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
 }
-
 
 .grid {
   display: grid;
   gap: 1.5rem;
   
-  // PCでは3列
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  // タブレットでは2列
   @media (min-width: 768px) and (max-width: 1023px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  // SPでは1列
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
   }

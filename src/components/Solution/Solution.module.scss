@@ -1,28 +1,79 @@
+/* Solution.module.scss */
 .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 2rem;
-    padding: 2.5rem 0;
-    border-bottom: 2px solid #f3f4f6;
-    @media (min-width: 768px) {
-      grid-template-columns: 1fr 1fr;
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  border-radius: 12px;
+  
+  // アニメーションの初期状態
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  // 表示された時のスタイル
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+
+  /* --- ★ここからがレスポンシブ対応の修正箇所です --- */
+
+  /* PC表示 (1024px以上) */
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    
+    // 偶数番目の要素は画像の順序を入れ替える
+    &:nth-child(even) {
+      .imageWrapper {
+        order: -1;
+      }
     }
   }
   
-  .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fd2551;
-    margin-bottom: 1rem;
+  /* タブレット・SP表示 (1023px以下) */
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr; // 1列の縦積みレイアウト
+    padding: 1.5rem; // 内側の余白を狭める
+    gap: 1.5rem;
+
+    .imageWrapper {
+      // SPでは画像の順序を常に上にする
+      order: -1;
+      margin: 0 auto;
+      img{max-width: 240px;}
+    }
   }
-  
-  .description {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: #333;
+  /* --- 修正ここまで --- */
+}
+
+.title {
+  font-weight: bold;
+  color: #fff;
+  // clamp()でフォントサイズを滑らかに調整
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+  margin-bottom: 1rem;
+}
+
+.description {
+  text-align: left;
+  line-height: 1.8;
+  color: #ccc;
+  // clamp()でフォントサイズを滑らかに調整
+  font-size: clamp(0.9rem, 2vw, 0.95rem);
+}
+
+.imageWrapper {
+  text-align: center;
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05);
   }
-  
-  .imageWrapper {
-    text-align: center;
-  }
+
+}
