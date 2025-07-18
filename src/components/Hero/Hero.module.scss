@@ -101,7 +101,9 @@
   font-family: inherit;
   cursor: pointer;
   text-decoration: none; // aタグの下線を消す
-
+  @media (max-width: 768px) {
+    padding: .8rem;
+  }
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
@@ -165,9 +167,6 @@
   justify-content: center;
   align-items: center;
   max-width: 300px;
-  @media (max-width: 768px) {
-    max-width: 500px;
-  }
 }
 
 .backgroundImage {
