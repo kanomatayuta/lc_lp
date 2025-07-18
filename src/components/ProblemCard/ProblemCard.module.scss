@@ -1,29 +1,46 @@
+/* ProblemCard.module.scss */
 .card {
   background-color: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
+  border-radius: 12px; // 角をより丸く
+  padding: 2rem;
   text-align: left;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; // 高さを揃える
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
 }
 
 .title {
-  background-color: #333;
+  display: inline; // インライン要素として扱う
+  background-color: #000;
   color: #fff;
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  border-radius: 0.25rem;
-  margin-bottom: 1.5rem;
+  
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  
+  padding: 0.2em 0.3em;
+  line-height: 2; // 行間を広めに
 }
 
 .imageContainer {
-  margin-bottom: 1.5rem;
+  margin: 1rem 0; // 上下の余白を確保
   text-align: center;
+
+  img {
+    max-width: 200px;
+    height: auto;
+  }
 }
 
 .description {
   font-size: 0.9rem;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #333;
 }
