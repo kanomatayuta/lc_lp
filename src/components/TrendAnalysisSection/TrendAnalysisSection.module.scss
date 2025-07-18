@@ -1,53 +1,79 @@
-/* src/components/TrendAnalysisSection/TrendAnalysisSection.module.scss */
+/* TrendAnalysisSection.module.scss */
 
 .section {
-    padding: 4rem 0;
-    background-color: #f9fafb; // 背景色を薄いグレーに設定
+  padding: 3rem 0;
+  background-color: #fff;
+  // ★ アニメーションの初期状態
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  // ★ isVisibleがtrueになった時のスタイル
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.grid {
+  display: grid;
+  align-items: center;
+  gap: 3rem;
   
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  // SP・タブレットでは縦並び
+  grid-template-columns: 1fr;
+
+  // PC表示 (1024px以上) で横並びの2列に
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem; // PCでは余白を広めに
   }
-  
-  .grid {
-    display: grid;
-    align-items: center;
-    gap: 3rem;
-    grid-template-columns: 1fr; // モバイルでは1列
-  
-    // PC表示（768px以上）で2列に
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+}
+
+.textColumn {
+  @media(min-width: 1024px) {
+    // PCでは左揃えに戻す
+    text-align: left;
   }
-  
-  .textColumn {
-    h2 {
-      font-size: 2.25rem; // 36px
-      font-weight: bold;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-    }
-  
-    p {
-      font-size: 1rem; // 16px
-      line-height: 1.7;
-      color: #333;
-    }
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.25rem); // 可変フォントサイズ
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
   }
-  
-  .imageColumn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  p {
+    font-size: clamp(0.9rem, 2vw, 1rem); // 可変フォントサイズ
+    line-height: 1.8;
+    color: #333;
   }
-  
-  .image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.75rem; // 角を少し丸める
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
-      0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.imageColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // SPではテキストが上に来るように順序を変更
+  order: 1;
+
+  @media(min-width: 1024px) {
+    // PCでは順序をリセット
+    order: 0;
   }
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
