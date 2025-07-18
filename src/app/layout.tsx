@@ -4,8 +4,9 @@ import Script from "next/script";
 import "./globals.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { ModalProvider } from "@/context/ModalContext"; // ModalProviderをインポート
+import AppManager from "@/components/AppManager/AppManager"; // 新しいコンポーネントをインポート
 
-// ★ パフォーマンス改善: フォントの読み込み戦略を'swap'に設定
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -34,8 +35,6 @@ export const metadata: Metadata = {
     "LC",
     "Leading Communication",
   ],
-
-  // OGP (Open Graph Protocol) の設定
   openGraph: {
     title: siteName,
     description: description,
@@ -52,16 +51,12 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
   },
-
-  // Twitterカードの設定
   twitter: {
     card: "summary_large_image",
     title: siteName,
     description: description,
-    images: [`${url}/twitter-image.png`], // Twitter専用の画像を指定
+    images: [`${url}/twitter-image.png`],
   },
-
-  // その他の重要なメタデータ
   metadataBase: new URL(url),
   alternates: {
     canonical: "/",
@@ -84,35 +79,37 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        {/* ★ パフォーマンス改善: スクリプトの読み込み戦略を'lazyOnload'に変更 */}
-        {/* Google Tag Manager */}
-        <Script
-          strategy="lazyOnload"
-          src="https://www.googletagmanager.com/gtag/js?id=G-EWPSTDG3YT"
-        />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-EWPSTDG3YT');
-          `}
-        </Script>
-
-        {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="lazyOnload">
-          {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "sg6lf55y8e");
-          `}
-        </Script>
-
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ModalProvider>
+          {" "}
+          {/* ★ アプリ全体をProviderで囲む */}
+          {/* Google Tag Manager */}
+          <Script
+            strategy="lazyOnload"
+            src="https://www.googletagmanager.com/gtag/js?id=G-EWPSTDG3YT"
+          />
+          <Script id="gtag-init" strategy="lazyOnload">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-EWPSTDG3YT');
+            `}
+          </Script>
+          {/* Microsoft Clarity */}
+          <Script id="microsoft-clarity" strategy="lazyOnload">
+            {`
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "sg6lf55y8e");
+            `}
+          </Script>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <AppManager /> {/* ★ ポップアップを管理するコンポーネントを配置 */}
+        </ModalProvider>
       </body>
     </html>
   );

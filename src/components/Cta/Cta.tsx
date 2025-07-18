@@ -1,15 +1,23 @@
+"use client";
 import Link from "next/link";
+import { useModal } from "@/context/ModalContext"; // useModalフックをインポート
 import styles from "./Cta.module.scss";
 
 export default function Cta() {
+  const { openModal } = useModal(); // ポップアップを開くための関数を取得
+
   return (
     <div className={styles.grid}>
-      <Link href="#contact" className={`${styles.ctaButton} ${styles.primary}`}>
+      {/* ★ aタグからbuttonタグに変更し、onClickイベントを追加 */}
+      <button
+        onClick={openModal}
+        className={`${styles.ctaButton} ${styles.primary}`}
+      >
         TikTokの
         <br />
         有益な情報を大公開
         <span>資料請求はこちら</span>
-      </Link>
+      </button>
       <Link
         href="#contact"
         className={`${styles.ctaButton} ${styles.secondary}`}
