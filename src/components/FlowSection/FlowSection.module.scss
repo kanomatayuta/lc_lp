@@ -12,8 +12,9 @@
     transform: translateX(-50%);
     font-size: 15rem; // vwから固定値に変更
     font-weight: 900;
-    color: #eaf8ff; // 画像に合わせた薄い水色
+    color: #24F3EE; // 画像に合わせた薄い水色
     z-index: 1;
+    opacity: 0.2;
     user-select: none;
     white-space: nowrap;
   
@@ -29,12 +30,12 @@
     text-align: center;
     position: relative;
     z-index: 2;
+    overflow-y: visible;
   }
   
   .heading {
     font-size: 2.25rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
   }
   
   .subheading {
@@ -44,17 +45,31 @@
   }
   
   .grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-    
-    // 768px以上で横並び開始
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    gap: 0.5rem;
+    padding-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
+    align-items: stretch;
+
+    @media (max-width: 1279px) {
+      gap: 0.5rem;
     }
-    
-    // 1280px以上で5列表示
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(5, 1fr);
+    @media (max-width: 767px) {
+      gap: 0.25rem;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
+
+.card {
+  scroll-snap-align: start;
+  min-width: 0;
+  // 横幅指定はFlowStepCard.module.scssで行う
+}

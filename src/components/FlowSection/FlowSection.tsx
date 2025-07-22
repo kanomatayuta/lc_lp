@@ -53,14 +53,15 @@ export default function FlowSection() {
         <p className={styles.subheading}>- 成果を出す5つのステップ -</p>
         <div className={styles.grid}>
           {flowData.map((step) => (
-            <FlowStepCard
-              key={step.number}
-              number={step.number}
-              title={step.title}
-              subtitle={step.subtitle}
-              imageSrc={step.imageSrc}
-              description={step.description}
-            />
+            <div key={step.number} style={{ height: "100%" }}>
+              <FlowStepCard
+                number={step.number}
+                title={step.title}
+                subtitle={step.subtitle}
+                imageSrc={step.imageSrc}
+                description={step.description}
+              />
+            </div>
           ))}
         </div>
       </div>
