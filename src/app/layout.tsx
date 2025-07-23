@@ -85,14 +85,14 @@ export default function RootLayout({
           {/* Google Tag Manager */}
           <Script
             strategy="lazyOnload"
-            src="https://www.googletagmanager.com/gtag/js?id=G-EWPSTDG3YT"
+            src="https://www.googletagmanager.com/gtag/js?id=G-1P0FP39FWF"
           />
           <Script id="gtag-init" strategy="lazyOnload">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-EWPSTDG3YT');
+              gtag('config', 'G-1P0FP39FWF');
             `}
           </Script>
           {/* Microsoft Clarity */}
