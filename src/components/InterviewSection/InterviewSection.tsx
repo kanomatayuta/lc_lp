@@ -87,6 +87,10 @@ export default function InterviewSection() {
                 slidesPerView={1}
                 spaceBetween={20}
                 breakpoints={{
+                  768: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 24,
+                  },
                   1024: {
                     slidesPerView: 3,
                     spaceBetween: 30,

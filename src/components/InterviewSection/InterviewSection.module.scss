@@ -1,6 +1,6 @@
 /* InterviewSection.module.scss */
 .section {
-  background-color: #0d1a2b;
+  background-color: #000000;
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
@@ -14,16 +14,14 @@
 
 .verticalTitle {
   writing-mode: vertical-rl;
-  font-size: 6rem;
+  font-size: 8rem;
   font-weight: 900;
   color: #25fde0;
-  opacity: 0.5;
   user-select: none;
   line-height: 1;
   position: absolute;
-  left: 1rem;
   top: 50%;
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%);
   display: none;
   @media(min-width: 1280px){
     display: block;
@@ -31,12 +29,11 @@
 }
 
 .mainContent {
-  background-color: #fff;
   border-radius: 1rem;
   padding: 2.5rem;
   position: relative;
   @media(min-width: 1280px) { margin-left: 100px; }
-  @media(max-width: 1023px) { padding: 1.5rem; }
+  @media(max-width: 1023px) { padding: 1rem; }
 }
 
 .header {
@@ -48,13 +45,14 @@
   @media (max-width: 1023px) {
     flex-direction: column;
     margin-bottom: 2rem;
+    width: 100%;
   }
 }
 
-.headerText { max-width: 600px; }
-.title { font-size: 2rem; font-weight: bold; }
-.subtitle { font-size: 1rem; font-weight: bold; margin-bottom: 1rem; }
-.description { font-size: 0.9rem; line-height: 1.7; color: #333; }
+.headerText { max-width: 600px; color: #fff;}
+.title { font-size: 3rem; font-weight: bold;}
+.subtitle { font-size: 1.6rem; font-weight: bold; margin-bottom: 1rem; }
+.description { font-size: 0.9rem; line-height: 1.7; color: #fff; }
 
 /* PC用ナビゲーション */
 .navigationWrapperPC {

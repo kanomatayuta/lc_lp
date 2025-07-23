@@ -8,17 +8,35 @@ type Props = {
   onNext: () => void;
 };
 
-const ArrowIcon = () => (
+const ArrowLeftIcon = () => (
   <svg
-    width="10"
-    height="16"
-    viewBox="0 0 10 16"
+    width="36"
+    height="36"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M8.5 15L1.5 8L8.5 1"
-      stroke="white"
+    <polyline
+      points="15 18 9 12 15 6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const ArrowRightIcon = () => (
+  <svg
+    width="36"
+    height="36"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <polyline
+      points="9 6 15 12 9 18"
+      stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -45,13 +63,13 @@ export default function CustomNavigation({
       </div>
       <div className={styles.buttons}>
         <button onClick={onPrev} className={styles.navButton}>
-          <ArrowIcon />
+          <ArrowLeftIcon />
         </button>
         <button
           onClick={onNext}
           className={`${styles.navButton} ${styles.next}`}
         >
-          <ArrowIcon />
+          <ArrowRightIcon />
         </button>
       </div>
     </div>

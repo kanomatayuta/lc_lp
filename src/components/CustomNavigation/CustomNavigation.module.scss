@@ -10,6 +10,12 @@
     gap: 1rem;
     align-items: center;
   }
+  @media (max-width: 767px) {
+    width: 100%;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .counter {
@@ -17,24 +23,36 @@
   align-items: baseline;
   font-weight: bold;
   color: #333;
-  width: 80px;
   justify-content: center;
-  
-  // ★数字が切り替わってもレイアウトがズレないようにする
   font-variant-numeric: tabular-nums;
-
-  @media (max-width: 1023px) {
-    width: 60px;
+  @media (max-width: 1024px) {
+    width: 40px;
     order: -1; // ボタンの上に配置
+    font-size: 1.5rem;
+    flex-direction: column;
+  }
+  @media (max-width: 767px) {
+    flex-direction:row;
   }
 }
 
 .current {
-  font-size: 2rem;
+  color: #fff;
+  font-size: 8rem;
+  @media (max-width: 1024px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 }
 
 .divider, .total {
-  font-size: 0.875rem;
+  color: #fff;
+  font-size: 2rem;
+  @media (max-width: 1024px) {
+    font-size: 1.2rem;
+  }
 }
 
 .buttons {
@@ -43,48 +61,49 @@
   background-color: #fd2551;
   box-shadow: 0 4px 10px rgba(253, 37, 81, 0.3);
   overflow: hidden;
+  align-items: center;
   
-  // SP版では縦並び
+  // タブレット以下で縦並び
   @media (max-width: 1023px) {
     flex-direction: column;
   }
+  // SP時の横並び指定を削除
 }
 
 .navButton {
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
+  width: 80px;
+  height: 80px;
+  background-color: #fd2551;
   border: none;
-  cursor: pointer;
+  border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  transition: background-color 0.3s;
-  
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+
   svg {
-    @media (max-width: 1023px) {
-      transform: rotate(-180deg); 
-    }
+    color: #fff;
+    display: block;
   }
-
   &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background: #ffe5ec;
+    box-shadow: 0 4px 16px rgba(253, 37, 81, 0.15);
+  }
+  &:hover svg {
+    color: #fd2551;
   }
 
-  &:first-child {
-    @media (min-width: 1024px) {
-      border-right: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    @media (max-width: 1023px) {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  @media (max-width: 1024px) {
+    width: 60px;
+    height: 60px;
+    & + .navButton {
+      margin-top: 12px;
     }
   }
-  
-  &.next {
-    transform: scaleX(-1);
-    @media (max-width: 1023px) {
-      transform: scaleY(-1);
-      transform: rotate(-180deg); 
-    }
+  @media (max-width: 767px) {
+    width: 54px;
+    height: 54px;
   }
 }

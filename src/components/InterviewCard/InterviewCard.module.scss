@@ -44,6 +44,9 @@
   z-index: 3; // 一番上のレイヤー
   padding: 1.5rem;
   text-shadow: 0 1px 3px rgba(0,0,0,0.5); // 文字の視認性向上のためのドロップシャドウ
+  @media (max-width: 765px) {
+    padding: 1rem;
+  }
 }
 
 .company, .role {
@@ -54,10 +57,13 @@
 .role {
   opacity: 0.8;
   margin-bottom: 1rem;
+  @media (max-width: 765px) {
+    margin-bottom: .4rem;
+  }
 }
 
 .testimonial {
   font-size: 1rem; // 少し大きく
   font-weight: 500;
-  line-height: 1.7;
+  line-height: 1.4;
 }
