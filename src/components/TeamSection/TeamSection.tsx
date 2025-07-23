@@ -27,12 +27,6 @@ const teamData = [
     description:
       "KPI達成を第一優先に、クリエイティブとデータの両軸でPDCAを回しています。次の一手が見える具体的なレポートを提供することで、クライアントの期待を超える成果を狙っています。",
   },
-  {
-    imageSrc: "/images/team/member_ogawa.jpg",
-    name: "R.OGAWA",
-    description:
-      "KPI達成を第一優先に、クリエイティブとデータの両軸でPDCAを回しています。次の一手が見える具体的なレポートを提供することで、クライアントの期待を超える成果を狙っています。",
-  },
 ];
 
 // ★ Swiperのループ機能を正常に動作させるため、データを複製します。
@@ -79,10 +73,20 @@ export default function TeamSection() {
               nextEl: `.${styles.next}`,
             }}
             loop={true} // ★ ループを有効化
-            slidesPerView={1.2}
-            centeredSlides={true}
-            spaceBetween={20}
+            slidesPerView={1.1}
+            centeredSlides={false}
+            spaceBetween={12}
             breakpoints={{
+              0: {
+                slidesPerView: 1.1,
+                spaceBetween: 12,
+                centeredSlides: false,
+              },
+              768: {
+                slidesPerView: 2.2,
+                spaceBetween: 24,
+                centeredSlides: false,
+              },
               1024: {
                 slidesPerView: 3,
                 spaceBetween: 30,
