@@ -3,9 +3,8 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  
-  // SP版ではカウンターとボタンを縦に並べる
-  @media (max-width: 1023px) {
+
+  @media (max-width: 1024px) {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
@@ -22,23 +21,26 @@
   display: flex;
   align-items: baseline;
   font-weight: bold;
-  color: #333;
+  color: #fff;
   justify-content: center;
   font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+
   @media (max-width: 1024px) {
-    width: 40px;
-    order: -1; // ボタンの上に配置
-    font-size: 1.5rem;
-    flex-direction: column;
+    width: auto;
+    order: -1;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
   @media (max-width: 767px) {
-    flex-direction:row;
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
   }
 }
 
 .current {
   color: #fff;
-  font-size: 8rem;
+  font-size: 6rem;
   @media (max-width: 1024px) {
     font-size: 3rem;
   }
@@ -53,6 +55,9 @@
   @media (max-width: 1024px) {
     font-size: 1.2rem;
   }
+  @media (max-width: 767px) {
+    font-size: 1rem;
+  }
 }
 
 .buttons {
@@ -62,12 +67,10 @@
   box-shadow: 0 4px 10px rgba(253, 37, 81, 0.3);
   overflow: hidden;
   align-items: center;
-  
-  // タブレット以下で縦並び
-  @media (max-width: 1023px) {
+
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
-  // SP時の横並び指定を削除
 }
 
 .navButton {
@@ -102,7 +105,7 @@
       margin-top: 12px;
     }
   }
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     width: 54px;
     height: 54px;
   }

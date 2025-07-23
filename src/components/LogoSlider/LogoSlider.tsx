@@ -10,7 +10,7 @@ const logoFiles = [
   "client_logo_image06.png",
 ];
 
-const logos = logoFiles.map((file) => `/client_logo/${file}`);
+const logos = logoFiles.map((file) => `/images/client_logo/${file}`);
 
 // ★ 無限ループをより確実にするため、ロゴのリストを8回に増やします
 const repeatedLogos = [
