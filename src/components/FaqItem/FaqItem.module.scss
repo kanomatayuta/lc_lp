@@ -1,86 +1,96 @@
 /* FaqItem.module.scss */
 .faqItem {
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  background: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   overflow: hidden;
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
 }
 
 .questionHeader {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 1.5rem;
-  text-align: left;
-  gap: 1.5rem;
-  background-color: #fff;
+  background: none;
   border: none;
+  padding: 1.5rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
-  font-family: inherit;
+  transition: background 0.2s;
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+    padding: 1.2rem 1.2rem;
+  }
+  @media (max-width: 767px) {
+    font-size: 0.95rem;
+    padding: 1rem 0.8rem;
+  }
 }
 
 .qIcon {
-  flex-shrink: 0;
-  font-size: 1.25rem;
-  font-weight: 900;
+  background: #000;
   color: #fff;
-  background-color: #333;
+  font-weight: bold;
   border-radius: 5px;
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  line-height: 1;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
 }
 
 .questionText {
-  flex-grow: 1;
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 1.6;
+  flex: 1;
+  text-align: left;
 }
 
-/* --- ここからが修正箇所です --- */
 .toggleIcon {
-  flex-shrink: 0;
+  margin-left: 1rem;
   width: 0;
   height: 0;
-  border-style: solid;
-  // 下向きの三角形を作成
-  border-width: 7px 5px 0 5px; // 上、左右、下の順
-  border-color: #333 transparent transparent transparent;
-  transition: transform 0.3s ease;
-  
-  // 開いた状態（下向き▼が上向き▲になる）
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.5rem solid #000;
+  transition: transform 0.3s;
+  display: inline-block;
+  vertical-align: middle;
   &.open {
     transform: rotate(180deg);
   }
 }
-/* --- 修正ここまで --- */
 
-
-/* 回答部分のアニメーション */
 .answerWrapper {
-  display: grid;
-  grid-template-rows: 0fr; // 初期状態では高さを0に
-  transition: grid-template-rows 0.4s ease;
-  background-color: #f9fafb;
-
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  transition: max-height 0.3s;
   &.open {
-    grid-template-rows: 1fr; // 開いた状態で高さを自動調整
+    max-height: 500px;
+    transition: max-height 0.5s;
   }
 }
 
 .answerContent {
-  overflow: hidden;
-  padding: 0 1.5rem; // アニメーション中はpaddingが見えないように
-
-  p {
-    padding: 1.5rem 0;
+  padding: 1.5rem 2rem;
+  font-size: 1rem;
+  color: #333;
+  @media (max-width: 1024px) {
     font-size: 0.95rem;
-    line-height: 1.8;
-    color: #333;
-    white-space: pre-wrap; // 改行を反映させる
-    border-top: 1px dashed #e5e7eb;
+    padding: 1.2rem 1.2rem;
+  }
+  @media (max-width: 767px) {
+    font-size: 0.9rem;
+    padding: 1rem 0.8rem;
   }
 }
