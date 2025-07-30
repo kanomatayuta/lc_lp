@@ -15,9 +15,9 @@ const ReasonsSection = dynamic(
 const FlowSection = dynamic(
   () => import("@/components/FlowSection/FlowSection")
 );
-const InterviewSection = dynamic(
-  () => import("@/components/InterviewSection/InterviewSection")
-);
+// const InterviewSection = dynamic(
+//   () => import("@/components/InterviewSection/InterviewSection")
+// );
 const FaqSection = dynamic(() => import("@/components/FaqSection/FaqSection"));
 const TeamSection = dynamic(
   () => import("@/components/TeamSection/TeamSection")
@@ -38,7 +38,7 @@ export default function Home() {
       <FeaturesSection />
       <ReasonsSection />
       <FlowSection />
-      <InterviewSection />
+      {/* <InterviewSection /> */}
       <FaqSection />
       <TeamSection />
       <ContactSection />
