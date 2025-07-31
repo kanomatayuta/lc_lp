@@ -50,7 +50,7 @@ const StylishArrowIcon = () => (
 const worksData = [
   {
     clientName: "日本ピザハット株式会社 様",
-    phoneImage: "/images/works/pizzahut.png",
+    phoneImage: "/images/works/works-1.png",
     performance: {
       title: "Follower",
       from: "38,200",
@@ -63,7 +63,7 @@ const worksData = [
   },
   {
     clientName: "日本サブウェイ合同会社 様",
-    phoneImage: "/images/works/pizzahut.png",
+    phoneImage: "/images/works/works-2.png",
     performance: {
       title: "Engagement Rate",
       from: "2",
@@ -76,7 +76,7 @@ const worksData = [
   },
   {
     clientName: "アデコ株式会社 様",
-    phoneImage: "/images/works/pizzahut.png",
+    phoneImage: "/images/works/works-3.png",
     performance: {
       title: "Follower",
       from: "0",
