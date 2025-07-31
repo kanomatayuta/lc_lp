@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import LogoSlider from "../LogoSlider/LogoSlider";
@@ -108,22 +107,14 @@ export default function Hero() {
           </div>
           <div className={styles.rightColumn}>
             <div className={styles.imageContainer}>
-              <div className={styles.backgroundImageWrapper}>
-                <Image
-                  src="/images/hero/hero-bg.png"
-                  alt="Abstract background"
-                  fill
-                  sizes="50vw"
-                  className={styles.backgroundImage}
-                />
-              </div>
               <div className={styles.foregroundImageWrapper}>
-                <Image
-                  src="/images/hero/hero-phone-front.png"
-                  alt="TikTok promotion example on a smartphone"
-                  fill
-                  sizes="(max-width: 768px) 80vw, 40vw"
-                  priority
+                <video
+                  src="/images/hero/hero-phone-front.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
                   className={styles.foregroundImage}
                 />
               </div>
