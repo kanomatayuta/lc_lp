@@ -59,8 +59,9 @@ export default function ReasonsSection() {
           LCが選ばれる<span className={styles.highlight}>4</span>つの理由
         </h2>
         <p className={styles.intro}>
-          TikTok運用代行会社・TikTok広告運用代行として、TikTok代行・ティックトック代行のプロフェッショナルチームが、
-          TikTok運営代行から成果創出まで一貫してサポート。TikTok業者をお探しの企業様に最適なソリューションを提供します。
+          私たちは単なる動画制作や広告配信にとどまらず、TikTok公式パートナーとしての知見と
+          戦略立案から効果検証までの一貫したサポート体制により、
+          お客様のビジネスゴール達成に直結する成果をお約束します。
         </p>
         <div className={styles.grid}>
           {reasonsData.map((reason) => (

@@ -44,15 +44,16 @@ export default function TrendAnalysisSection() {
         <div className={styles.grid}>
           <div className={styles.textColumn}>
             <h2>
-              最新トレンド×データ分析で、
-              <br />
-              TikTok運用を成功へ
+              トレンド × データドリブンで実現する、
+              成果直結型のTikTokマーケティング
             </h2>
             <p>
-              TikTok業者をお探しですか？LCはTikTokマーケティング会社として、
+              TikTok運用パートナーをお探しですか？
               <br />
-              TikTok運用代行会社・TikTok広告運用代行のプロフェッショナルチームが、
-              最新トレンドとデータ分析に基づいたTikTok運営代行で成果を実現します。
+              LeadingCommunicationは、TikTokマーケティングに特化した専門チームが、
+              最新トレンドと綿密なデータ分析を駆使し、
+              <br />
+              TikTok広告運用・アカウント運用代行で確かな成果をお届けします。
             </p>
           </div>
           <div className={styles.imageColumn}>

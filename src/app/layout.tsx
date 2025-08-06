@@ -15,7 +15,7 @@ const inter = Inter({
 // SEO設定
 const siteName = "TikTok運用代行会社LC | TikTokマーケティング・広告運用代行";
 const description =
-  "TikTok運用代行・TikTok広告運用代行ならLC。上場企業も信頼するTikTokマーケティング会社として、TikTok代行・TikTokコンサル会社として実績多数。ティックトック代行で売上に直結するTikTok運営代行を提供。TikTok業者をお探しの企業様はまずは無料資料請求を。";
+  "TikTok運用代行・広告運用代行のLeading Communication。上場企業を含む豊富な実績と専門的な分析力で、成果に直結するTikTokマーケティングを実現。無料相談・資料請求受付中。";
 const url = "https://landing.le-commu.co.jp/";
 
 export const metadata: Metadata = {

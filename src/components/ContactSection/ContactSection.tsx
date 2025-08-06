@@ -8,9 +8,10 @@ export default function ContactSection() {
         <div className={styles.header}>
           <h2 className={styles.title}>お問い合わせ</h2>
           <p className={styles.description}>
-            TikTokマーケティング会社・TikTok代行・ティックトック代行に関するご質問、
+            サービスに関するご質問から具体的なお見積もりまで、
             <br />
-            TikTok広告運用代行・TikTok運営代行のお見積もりなど、お気軽にご相談ください。
+            どんなご相談でもお気軽にお問い合わせください。
+            専門スタッフが1営業日以内にご連絡いたします。
           </p>
         </div>
         <div className={styles.formWrapper}>

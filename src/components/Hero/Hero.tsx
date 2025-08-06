@@ -76,9 +76,9 @@ export default function Hero() {
               へ。
             </h1>
             <p className={styles.description}>
-              TikTok代行・ティックトック代行の専門チームが
+              TikTok運用における豊富な実績をもとに、
               <br className={styles.spNone} />
-              上場企業も納得のTikTok広告運用代行・TikTok運営代行を提供。
+              上場企業をはじめとする多くのクライアント様へ、最適な広告・運用代行サービスをご提供しています。
             </p>
             <div className={styles.ctaButtons}>
               <button
