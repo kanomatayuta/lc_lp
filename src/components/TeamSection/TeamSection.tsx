@@ -61,7 +61,8 @@ export default function TeamSection() {
             プロフェッショナルたち
           </h2>
           <p className={styles.description}>
-            LCのTikTok運用が成果を上げる背景には、プロジェクトに携わる各担当者の確かな技術と情熱があります。現場の声を通じて、プロジェクトがどのように進行しているのかをご紹介します。
+            TikTokマーケティング会社として、TikTok広告運用代行・TikTok運営代行で成果を上げる背景には、
+            TikTok代行のプロフェッショナルチームの確かな技術と情熱があります。
           </p>
         </div>
 

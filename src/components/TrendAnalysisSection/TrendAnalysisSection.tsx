@@ -49,10 +49,10 @@ export default function TrendAnalysisSection() {
               TikTok運用を成功へ
             </h2>
             <p>
-              TikTokを試したものの、「何が正解かわからない」と悩んでいませんか？
+              TikTok業者をお探しですか？LCはTikTokマーケティング会社として、
               <br />
-              LCはTikTok公式パートナーとして、最新トレンドとデータ分析に基づいた戦略で、動画制作から運用、分析までを一貫サポート。
-              あなたのTikTokアカウントを、成果を出す集客チャネルに変革します。
+              TikTok運用代行会社・TikTok広告運用代行のプロフェッショナルチームが、
+              最新トレンドとデータ分析に基づいたTikTok運営代行で成果を実現します。
             </p>
           </div>
           <div className={styles.imageColumn}>

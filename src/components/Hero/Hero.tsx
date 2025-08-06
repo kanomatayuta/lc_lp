@@ -76,9 +76,9 @@ export default function Hero() {
               へ。
             </h1>
             <p className={styles.description}>
-              事務所のトレンド把握力 x 上場企業も納得の分析・提案体制で
+              TikTok代行・ティックトック代行の専門チームが
               <br className={styles.spNone} />
-              「売上にインパクトのある企画と動画」をご提案します。
+              上場企業も納得のTikTok広告運用代行・TikTok運営代行を提供。
             </p>
             <div className={styles.ctaButtons}>
               <button
